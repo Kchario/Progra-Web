@@ -5,29 +5,33 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 
-<ui:composition template="/master.xhtml">
+<ui:composition template="master.xhtml">
 	<ui:define name="content">
-		<h2>Agregar Tipo de Restaurante</h2>
-		
-			<p:commandButton value="Ver Tipo de Restaurante"
-				action="listTipoRestaurante?faces-redirect=true"></p:commandButton>
-				
+		<h2>Lista de tipos de restaurante</h2>
 		<h:form>
-			<h:outputLabel value="Id" for="id" styleClass="control-label" />
-			<h:inputText value="#{TipoRestauranteController.p.idRestaurante}"
-				id="id" styleClass="form-control" />
+			<p:dataTable id="lstTiporestaurante"
+				value="#{tiporestauranteController.listaTiporestaurantes}"
+				var="pe" paginator="true" paginatorPosition="top"
+				rowPerPageTemplate="5,10,15,20,25" rows="5" rowIndexVar="item"
+				emptyMessage="No existen personas en la base de datos!!">
+				<p:column headerText="Id">
+					<h:outputText value="#{pe.idTiporestaurante}" />
+				</p:column>
 
-			<h:outputLabel value="Nombre: " for="nombre"
-				styleClass="control-label" />
-			<h:inputText value="#{TipoRestauranteController.p.nombreRestaurante}"
-				id="nombre" styleClass="form-control" />
+				<p:column headerText="Nombre">
+					<h:outputText value="#{pe.tiporestaurante}" />
+				</p:column>
 
-			<p:commandButton value="Grabar"
-				actionListener="#{TipoRestauranteController.insert()}"
-				action="TipoRestaurante?faces-redirect=true"></p:commandButton>
+				<p:column headerText="Operación">
+					<h:commandLink action="listTiporestaurante" value="Eliminar"
+						actionListener="#{tiporestauranteController.delete(pe)}" />
+				</p:column>
+
+
+
+
+			</p:dataTable>
 		</h:form>
-
 	</ui:define>
-
 </ui:composition>
 </html>

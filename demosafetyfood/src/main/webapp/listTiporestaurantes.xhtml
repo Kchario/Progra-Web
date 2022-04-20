@@ -7,24 +7,24 @@
 
 <ui:composition template="master.xhtml">
 	<ui:define name="content">
-		<h2>Lista de Tipo de Restaurante</h2>
+		<h2>Lista de tipos de restaurante</h2>
 		<h:form>
-			<p:dataTable id="lstTipoRestaurante"
-				value="#{TipoRestauranteController.listaTipoRestaurante}"
+			<p:dataTable id="lstTiporestaurante"
+				value="#{tiporestauranteController.listaTiporestaurantes}"
 				var="pe" paginator="true" paginatorPosition="top"
 				rowPerPageTemplate="5,10,15,20,25" rows="5" rowIndexVar="item"
-				emptyMessage="No existen esto en la base de datos!!">
+				emptyMessage="No existen personas en la base de datos!!">
 				<p:column headerText="Id">
-					<h:outputText value="#{pe.idRestaurante}" />
+					<h:outputText value="#{pe.idTiporestaurante}" />
 				</p:column>
 
 				<p:column headerText="Nombre">
-					<h:outputText value="#{pe.nombreRestaurante}" />
+					<h:outputText value="#{pe.tiporestaurante}" />
 				</p:column>
 
 				<p:column headerText="Operación">
-					<h:commandLink action="listDepartamento" value="Eliminar"
-						actionListener="#{TipoRestauranteController.delete(pe)}" />
+					<h:commandLink action="listTiporestaurante" value="Eliminar"
+						actionListener="#{tiporestauranteController.delete(pe)}" />
 				</p:column>
 
 

@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Tipo_restaurante")
-public class Tipo_restaurante {
+public class TipoRestaurante {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,12 +19,12 @@ public class Tipo_restaurante {
 	private String nombreRestaurante;
 	
 	
-	public Tipo_restaurante() {
+	public TipoRestaurante() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Tipo_restaurante(int idRestaurante, String nombreRestaurante) {
+	public TipoRestaurante(int idRestaurante, String nombreRestaurante) {
 		super();
 		this.idRestaurante = idRestaurante;
 		this.nombreRestaurante = nombreRestaurante;

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/master.xhtml">
+	<ui:define name="content">
+		<h2>Agregar dato personal</h2>
+		
+			<p:commandButton value="Ver lista de datos personales"
+				action="listDatopersonal?faces-redirect=true"></p:commandButton>
+				
+		<h:form>
+			<h:outputLabel value="Id" for="id" styleClass="control-label" />
+			<h:inputText value="#{datopersonalController.p.idDatos}" id="id"
+				styleClass="form-control" />
+
+			<h:outputLabel value="Nombre: " for="nombre"
+				styleClass="control-label" />
+			<h:inputText value="#{datopersonalController.p.nombre}" id="nombre"
+				styleClass="form-control" />
+
+			<h:outputLabel value="Apellido: " for="apellido"
+				styleClass="control-label" />
+			<h:inputText value="#{datopersonalController.p.apellido}"
+				id="apellido" styleClass="form-control" />
+
+
+			<h:outputLabel value="Dni: " for="dni" styleClass="control-label" />
+			<h:inputText value="#{datopersonalController.p.dni}" id="dni"
+				styleClass="form-control" />
+
+			<h:outputLabel value="Correo: " for="correo"
+				styleClass="control-label" />
+			<h:inputText value="#{datopersonalController.p.correo}" id="correo"
+				styleClass="form-control" />
+
+			<p:commandButton value="Grabar"
+				actionListener="#{datopersonalController.insert()}"
+				action="datopersonal?faces-redirect=true"></p:commandButton>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+</html>
